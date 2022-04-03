@@ -7,7 +7,7 @@ const Filter = () => {
   
 
   const dispatch= useDispatch()
-  const filterInputValue = useSelector((state) => { return state.filter })
+  const filterInputValue = useSelector((state) => {  return state.filter })
 
   
    
