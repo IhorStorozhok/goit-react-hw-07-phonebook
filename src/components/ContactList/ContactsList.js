@@ -8,7 +8,7 @@ const ContactList = ({contacts}) => {
 
   
   const [deleteContact, status] = useDeleteContactMutation()
-  console.log(status)
+  
   
 
   
@@ -32,7 +32,7 @@ const ContactList = ({contacts}) => {
                 type="button"
                 onClick={() => {
                   deleteContact(contact.id);
-                console.log(status)}}
+                }}
               >
                 {status.status==='pending'?'Deleting...':"Delete"}
               </button>
