@@ -7,7 +7,8 @@ import { useDeleteContactMutation } from "redux/contacsApi";
 const ContactList = ({contacts}) => {
 
   
-  const[deleteContact]=useDeleteContactMutation()
+  const [deleteContact, status] = useDeleteContactMutation()
+  console.log(status)
   
 
   
@@ -27,10 +28,13 @@ const ContactList = ({contacts}) => {
               <span> {contact.number}</span>
               <button
                 className={s.deleteButton}
+                disabled={status.status==='pending'}
                 type="button"
-                 onClick={()=>{deleteContact(contact.id)}}
+                onClick={() => {
+                  deleteContact(contact.id);
+                console.log(status)}}
               >
-                delete
+                {status.status==='pending'?'Deleting...':"Delete"}
               </button>
             </li>
           );
